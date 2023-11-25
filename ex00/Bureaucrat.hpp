@@ -30,6 +30,12 @@ class   Bureaucrat
         ~Bureaucrat();
         Bureaucrat(Bureaucrat const &original);
         Bureaucrat  &operator=(Bureaucrat const &original);
+
+        std::string getName();
+        int         getGrade();
+
+        void    incrementGrade();
+        void    decrementGrade();
 };
 
 #endif

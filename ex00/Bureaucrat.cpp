@@ -40,3 +40,27 @@ Bureaucrat  &Bureaucrat::operator=(Bureaucrat const &original)
     }
     return (*this);
 }
+
+std::string Bureaucrat::getName()
+{
+    return (name);
+}
+
+int Bureaucrat::getGrade()
+{
+    return (grade);
+}
+
+void    Bureaucrat::incrementGrade()
+{
+    if (grade < 1 && grade > 150)
+        // throw(std::exception );
+    grade -= 1;
+}
+
+void    Bureaucrat::decrementGrade()
+{
+    if (grade < 1 && grade > 150)
+        // throw(std::exception );
+    grade += 1;
+}
