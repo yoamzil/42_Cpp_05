@@ -27,7 +27,7 @@ class   Bureaucrat
 
     public:
         Bureaucrat();
-        virtual ~Bureaucrat();
+        ~Bureaucrat();
         Bureaucrat(Bureaucrat const &original);
         Bureaucrat  &operator=(Bureaucrat const &original);
 };

@@ -36,7 +36,7 @@ Bureaucrat  &Bureaucrat::operator=(Bureaucrat const &original)
 {
     if (this != &original)
     {
-        // this->type = original.type;
+        this->grade = original.grade;
     }
     return (*this);
 }

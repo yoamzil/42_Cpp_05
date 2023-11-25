@@ -1,9 +1,9 @@
 CXX			=	c++
 CXXFLAGS	=	-Wall -Werror -Wextra -std=c++98
-NAME		=	
-SRCS		=	
+NAME		=	Bureaucrat
+SRCS		=	main.cpp Bureaucrat.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-HFS			=	
+HFS			=	Bureaucrat.hpp
 
 %.o			:	%.cpp $(HFS)
 				$(CXX) $(CXXFLAGS) -c $< -o $@
