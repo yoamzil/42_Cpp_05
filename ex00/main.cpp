@@ -20,8 +20,10 @@ int main()
 {
     try
     {
-        Bureaucrat a("Ali", 150);
-        std::cout << a.getName() << "'s grade is: " << a.getGrade() << std::endl;   
+        Bureaucrat a("Ali", 15);
+        std::cout << a << std::endl;
+        a.incrementGrade();
+        std::cout << a << std::endl;
     }
     catch (std::exception &e)
     {
