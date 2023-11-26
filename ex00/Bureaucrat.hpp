@@ -18,11 +18,12 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <exception>
 
 class   Bureaucrat
 {
     private:
-        std::string const   name;
+        const std::string   name;
         int                 grade;
 
     public:
@@ -31,11 +32,19 @@ class   Bureaucrat
         Bureaucrat(Bureaucrat const &original);
         Bureaucrat  &operator=(Bureaucrat const &original);
 
+        Bureaucrat(const std::string Name, int grade);
+
+        std::exception  GradeTooHighException();
+        std::exception  GradeTooLowException();
+
         std::string getName();
         int         getGrade();
 
-        void    incrementGrade();
-        void    decrementGrade();
+        void        incrementGrade();
+        void        decrementGrade();
+
 };
+
+std::ostream    &operator<<(std::ostream &out, Bureaucrat &original);
 
 #endif

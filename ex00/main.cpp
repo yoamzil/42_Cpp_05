@@ -18,15 +18,15 @@
 
 int main()
 {
-    Bureaucrat a;
-
     try
     {
-        /* do some stuff with bureaucrats */
+        Bureaucrat a("Ali", 150);
+        std::cout << a.getName() << "'s grade is: " << a.getGrade() << std::endl;   
     }
     catch (std::exception &e)
     {
         /* handle exception */
+        std::cout << "Try Again!"<< std::endl;
     }
     return (0);
 }
