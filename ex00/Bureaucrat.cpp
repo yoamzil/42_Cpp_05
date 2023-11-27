@@ -16,19 +16,19 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("Unknown")
 {
-    std::cout << "Bureaucrat constructor called" << std::endl;
+    // std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat destructor called" << std::endl;
+    // std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string Name, int Grade) : name(Name)
 {
-    std::cout << "Bureaucrat parameterized constructor called" << std::endl;
+    // std::cout << "Bureaucrat parameterized constructor called" << std::endl;
     if (Grade < 1)
         throw GradeTooHighException();
     else if (Grade > 150)
@@ -36,9 +36,9 @@ Bureaucrat::Bureaucrat(const std::string Name, int Grade) : name(Name)
     grade = Grade;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &original)
+Bureaucrat::Bureaucrat(Bureaucrat const &original) : name(original.name)
 {
-    std::cout << "Bureaucrat copy constructor called" << std::endl;
+    // std::cout << "Bureaucrat copy constructor called" << std::endl;
     *this = original;
 }
 
@@ -81,20 +81,20 @@ int Bureaucrat::getGrade()
 
 void    Bureaucrat::incrementGrade()
 {
+    std::cout << "Incrementing..." << std::endl;
     if (grade <= 1)
         throw GradeTooHighException();
     else if (grade > 150)
         throw GradeTooLowException();
-    std::cout << "Incrementing..." << std::endl;
     grade -= 1;
 }
 
 void    Bureaucrat::decrementGrade()
 {
+    std::cout << "Decrementing..." << std::endl;
     if (grade < 1)
         throw GradeTooHighException();
     else if (grade >= 150)
         throw GradeTooLowException();
-    std::cout << "Decrementing..." << std::endl;
     grade += 1;
 }

@@ -21,13 +21,18 @@ int main()
     try
     {
         Bureaucrat a("Ali", 15);
+        Bureaucrat b("Hmad", 130);
+        
+        
         std::cout << a << std::endl;
         a.incrementGrade();
         std::cout << a << std::endl;
+        std::cout << b << std::endl;
+        b.decrementGrade();
+        std::cout << b << std::endl;
     }
     catch (std::exception &e)
     {
-        /* handle exception */
         std::cout << "Try Again!"<< std::endl;
     }
     return (0);
