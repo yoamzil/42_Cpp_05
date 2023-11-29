@@ -20,8 +20,8 @@ int main()
 {
     try
     {
-        Bureaucrat a("Ali", 15);
-        Bureaucrat b("Hmad", 130);
+        Bureaucrat a("Ali", 2);
+        Bureaucrat b("Hmad", 150);
         
         
         std::cout << a << std::endl;
@@ -33,7 +33,7 @@ int main()
     }
     catch (std::exception &e)
     {
-        std::cout << "Try Again!"<< std::endl;
+        std::cout << e.what() << std::endl;
     }
     return (0);
 }
