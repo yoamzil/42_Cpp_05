@@ -19,7 +19,9 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 
+class Form;
 class   Bureaucrat
 {
     private:
@@ -36,6 +38,8 @@ class   Bureaucrat
 
         std::string getName();
         int         getGrade();
+
+		void		signForm(Form &form);
 
         void        incrementGrade();
         void        decrementGrade();

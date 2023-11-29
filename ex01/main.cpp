@@ -15,25 +15,28 @@
 /* ************************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
     try
     {
-        Bureaucrat a("Ali", 15);
-        Bureaucrat b("Hmad", 130);
+		Bureaucrat a("Ali", 1);
+        Form b("simo", 16) ;
+        // Form b("Hmad", 130);
         
-        
-        std::cout << a << std::endl;
-        a.incrementGrade();
-        std::cout << a << std::endl;
-        std::cout << b << std::endl;
-        b.decrementGrade();
-        std::cout << b << std::endl;
+        b.beSigned(a);
+		a.signForm(b);
+        // std::cout << a << std::endl;
+        // a.incrementGrade();
+        // std::cout << a << std::endl;
+        // std::cout << b << std::endl;
+        // b.decrementGrade();
+        // std::cout << b << std::endl;
     }
     catch (std::exception &e)
     {
-        std::cout << "Try Again!"<< std::endl;
+        std::cout << e.what() << std::endl;
     }
     return (0);
 }

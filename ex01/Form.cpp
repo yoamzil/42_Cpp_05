@@ -14,3 +14,75 @@
 /*																						  */
 /* ************************************************************************************** */
 
+#include "Form.hpp"
+#include "Bureaucrat.hpp"
+
+Form::Form() : name("Unknown") , gradeToSign(150) , gradeToExecute(150)
+{
+    // std::cout << "Form constructor called" << std::endl;
+}
+
+Form::~Form()
+{
+    // std::cout << "Form destructor called" << std::endl;
+}
+
+Form::Form(Form const &original) : name(original.name) , gradeToSign(original.gradeToSign) , gradeToExecute(original.gradeToExecute)
+{
+    // std::cout << "Form copy constructor called" << std::endl;
+    *this = original;
+}
+
+Form  &Form::operator=(Form const &original)
+{
+    if (this != &original)
+    {
+        // this->gradeToSign = original.gradeToSign;
+    }
+    return (*this);
+}
+
+Form::Form(const std::string Name, const int Grade) : name(Name) , gradeToSign(Grade) , gradeToExecute(Grade)
+{
+    // std::cout << "Form parameterized constructor called" << std::endl;
+    if (Grade < 1)
+        throw GradeTooHighException();
+    else if (Grade > 150)
+        throw GradeTooLowException();
+}
+
+
+
+std::ostream    &operator<<(std::ostream &out, const Form &Form)
+{
+    out << Form.getName() << ", is signed: " << Form.getIsSigned() <<", grade to sign Form " << Form.getGradeToSign() << ", and grade to execute Form " << Form.getGradeToExecute() << std::endl;
+    return (out);
+}
+
+std::string Form::getName() const
+{
+    return (name);
+}
+
+int Form::getGradeToSign() const
+{
+    return (gradeToSign);
+}
+
+int Form::getGradeToExecute() const
+{
+    return (gradeToExecute);
+}
+ 
+bool Form::getIsSigned() const
+{
+	return (isSigned);
+}
+
+void		Form::beSigned(Bureaucrat &bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->gradeToSign)
+		throw GradeTooLowException();
+	else
+		this->isSigned = true;
+}

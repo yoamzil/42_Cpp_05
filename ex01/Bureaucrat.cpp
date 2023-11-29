@@ -15,6 +15,7 @@
 /* ************************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : name("Unknown")
 {
@@ -85,4 +86,13 @@ void    Bureaucrat::decrementGrade()
     else if (grade >= 150)
         throw GradeTooLowException();
     grade += 1;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	// form.beSigned(*this);
+	if (form.getIsSigned() == true)
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	else if (form.getIsSigned() == false)
+		std::cout << this->getName() << " couldn't sign " << form.getName() << ", because " << this->getName() << "'s grade is not high enough." << std::endl;
 }
