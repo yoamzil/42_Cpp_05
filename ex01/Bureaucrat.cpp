@@ -57,18 +57,6 @@ std::ostream    &operator<<(std::ostream &out, Bureaucrat &bureaucrat)
     return (out);
 }
 
-std::exception    Bureaucrat::GradeTooHighException()
-{
-    std::cout << "Grade Too High!" << std::endl;
-    return std::exception();
-}
-
-std::exception    Bureaucrat::GradeTooLowException()
-{
-    std::cout << "Grade Too Low!" << std::endl;
-    return std::exception();
-}
-
 std::string Bureaucrat::getName()
 {
     return (name);
