@@ -19,17 +19,17 @@
 
 AForm::AForm() : name("Unknown") , gradeToSign(150) , gradeToExecute(150)
 {
-    // std::cout << "AForm constructor called" << std::endl;
+    std::cout << "AForm constructor called" << std::endl;
 }
 
 AForm::~AForm()
 {
-    // std::cout << "AForm destructor called" << std::endl;
+    std::cout << "AForm destructor called" << std::endl;
 }
 
 AForm::AForm(AForm const &original) : name(original.name) , gradeToSign(original.gradeToSign) , gradeToExecute(original.gradeToExecute)
 {
-    // std::cout << "AForm copy constructor called" << std::endl;
+    std::cout << "AForm copy constructor called" << std::endl;
     *this = original;
 }
 
@@ -44,7 +44,7 @@ AForm  &AForm::operator=(AForm const &original)
 
 AForm::AForm(const std::string Name, const int Grade) : name(Name) , gradeToSign(Grade) , gradeToExecute(Grade)
 {
-    // std::cout << "AForm parameterized constructor called" << std::endl;
+    std::cout << "AForm parameterized constructor called" << std::endl;
     if (Grade < 1)
         throw GradeTooHighException();
     else if (Grade > 150)

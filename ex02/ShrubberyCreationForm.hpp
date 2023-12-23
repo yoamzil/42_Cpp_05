@@ -19,9 +19,9 @@
 
 #include <iostream>
 #include <exception>
+#include "AForm.hpp"
 
-class AForm;
-class   ShrubberyCreationForm
+class   ShrubberyCreationForm : public AForm
 {
     private:
 
@@ -31,8 +31,7 @@ class   ShrubberyCreationForm
         ShrubberyCreationForm(ShrubberyCreationForm const &original);
         ShrubberyCreationForm  &operator=(ShrubberyCreationForm const &original);
 
-        ShrubberyCreationForm(const std::string Name, int grade);
-
+        // ShrubberyCreationForm(const std::string Name, int grade);
 };
 
 std::ostream    &operator<<(std::ostream &out, ShrubberyCreationForm &ShrubberyCreationForm);

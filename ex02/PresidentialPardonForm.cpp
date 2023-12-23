@@ -16,42 +16,27 @@
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm()
+PresidetialPardonForm::PresidetialPardonForm()
 {
-    // std::cout << "PresidentialPardonForm constructor called" << std::endl;
+    std::cout << "PresidentialPardonForm constructor called" << std::endl;
 }
 
-PresidentialPardonForm::~PresidentialPardonForm()
+PresidetialPardonForm::~PresidetialPardonForm()
 {
-    // std::cout << "PresidentialPardonForm destructor called" << std::endl;
+    std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &original) : name(original.name) , gradeToSign(original.gradeToSign) , gradeToExecute(original.gradeToExecute)
+PresidetialPardonForm::PresidetialPardonForm(PresidetialPardonForm const &original)
 {
-    // std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
-    *this = original;
+	std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
+	*this = original;
 }
 
-PresidentialPardonForm  &PresidentialPardonForm::operator=(PresidentialPardonForm const &original)
+PresidetialPardonForm  &PresidetialPardonForm::operator=(PresidetialPardonForm const &original)
 {
-    if (this != &original)
-    {
-        // this->gradeToSign = original.gradeToSign;
-    }
-    return (*this);
-}
-
-PresidentialPardonForm::PresidentialPardonForm(const std::string Name, const int Grade) : name(Name) , gradeToSign(Grade) , gradeToExecute(Grade)
-{
-    // std::cout << "PresidentialPardonForm parameterized constructor called" << std::endl;
-    if (Grade < 1)
-        throw GradeTooHighException();
-    else if (Grade > 150)
-        throw GradeTooLowException();
-}
-
-std::ostream    &operator<<(std::ostream &out, const PresidentialPardonForm &PresidentialPardonForm)
-{
-    out << PresidentialPardonForm.getName() << ", is signed: " << PresidentialPardonForm.getIsSigned() <<", grade to sign PresidentialPardonForm " << PresidentialPardonForm.getGradeToSign() << ", and grade to execute PresidentialPardonForm " << PresidentialPardonForm.getGradeToExecute() << std::endl;
-    return (out);
+	if (this != &original)
+	{
+		// this->gradeToSign = original.gradeToSign;
+	}
+	return (*this);
 }

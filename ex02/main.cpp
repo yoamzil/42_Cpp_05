@@ -22,11 +22,11 @@ int main()
     try
     {
 		Bureaucrat a("Ali", 1);
-        Form b("simo", 16) ;
+        AForm b("simo", 16) ;
         // Form b("Hmad", 130);
         
         b.beSigned(a);
-		a.signForm(b);
+		// a.signForm(b);
         // std::cout << a << std::endl;
         // a.incrementGrade();
         // std::cout << a << std::endl;
