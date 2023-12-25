@@ -86,3 +86,6 @@ void		AForm::beSigned(Bureaucrat &bureaucrat)
 	else
 		this->isSigned = true;
 }
+
+void    AForm::execute(Bureaucrat const &executor) const
+{}
