@@ -37,7 +37,7 @@ class   AForm
         AForm(AForm const &original);
         AForm  &operator=(AForm const &original);
 
-		AForm(const std::string Name, const int Grade);
+		AForm(const std::string Name, bool IsSigned, const int GradeToSign, const int GradeToExecute);
 		// ==================== Getters ====================
 		std::string getName() const;
 		int			getGradeToSign() const;
@@ -63,6 +63,14 @@ class   AForm
 				const char *what() const throw()
 				{
 					return ("Grade too low");
+				}
+		};
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return ("Form not signed");
 				}
 		};
 };

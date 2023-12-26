@@ -19,9 +19,9 @@
 
 #include <iostream>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 class   Bureaucrat
 {
     private:
@@ -36,10 +36,10 @@ class   Bureaucrat
 
         Bureaucrat(const std::string Name, int grade);
 
-        std::string getName();
-        int         getGrade();
+        std::string getName() const;
+        int         getGrade() const;
 
-		void		signForm(Form &form);
+		void		signForm(AForm &form);
 
         void        incrementGrade();
         void        decrementGrade();

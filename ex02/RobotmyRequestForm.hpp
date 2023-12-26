@@ -24,7 +24,7 @@ class AForm;
 class   RobotmyRequestForm
 {
     private:
-
+		std::string		target;
     public:
         RobotmyRequestForm();
         ~RobotmyRequestForm();

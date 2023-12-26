@@ -20,18 +20,26 @@
 #include <iostream>
 #include <exception>
 #include "AForm.hpp"
+#include <fstream>
 
 class   ShrubberyCreationForm : public AForm
 {
     private:
-
+		std::string target;
     public:
+		// ==================== Constructors ====================
         ShrubberyCreationForm();
         ~ShrubberyCreationForm();
         ShrubberyCreationForm(ShrubberyCreationForm const &original);
         ShrubberyCreationForm  &operator=(ShrubberyCreationForm const &original);
 
         // ShrubberyCreationForm(const std::string Name, int grade);
+		
+		// ==================== Getters ====================
+		std::string	getTarget() const;
+
+		// ==================== Methods ====================
+		virtual void	execute(Bureaucrat const &executor) const;
 };
 
 std::ostream    &operator<<(std::ostream &out, ShrubberyCreationForm &ShrubberyCreationForm);

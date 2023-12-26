@@ -42,12 +42,12 @@ AForm  &AForm::operator=(AForm const &original)
     return (*this);
 }
 
-AForm::AForm(const std::string Name, const int Grade) : name(Name) , gradeToSign(Grade) , gradeToExecute(Grade)
+AForm::AForm(const std::string Name, bool IsSigned, const int GradeToSign, const int GradeToExecute ) : name(Name) , gradeToSign(GradeToSign) , gradeToExecute(GradeToExecute)
 {
     std::cout << "AForm parameterized constructor called" << std::endl;
-    if (Grade < 1)
+    if (GradeToSign < 1)
         throw GradeTooHighException();
-    else if (Grade > 150)
+    else if (GradeToSign > 150)
         throw GradeTooLowException();
 }
 
@@ -86,6 +86,3 @@ void		AForm::beSigned(Bureaucrat &bureaucrat)
 	else
 		this->isSigned = true;
 }
-
-void    AForm::execute(Bureaucrat const &executor) const
-{}

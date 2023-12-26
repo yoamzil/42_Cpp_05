@@ -15,10 +15,12 @@
 /* ************************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include "AForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", false, 145, 137)
 {
-    std::cout << "ShrubberyCreationForm constructor called" << std::endl;
+	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
+	this->target = "Default target";
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -36,14 +38,42 @@ ShrubberyCreationForm  &ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 {
 	if (this != &original)
 	{
-		// this->gradeToSign = original.gradeToSign;
+		this->target = original.target;
 	}
 	return (*this);
 }
 
-// std::ostream    &operator<<(std::ostream &out, ShrubberyCreationForm &ShrubberyCreationForm)
-// {
-// 	out << ShrubberyCreationForm.getName() << ", is signed: " << ShrubberyCreationForm.getIsSigned() <<", grade to sign ShrubberyCreationForm " << ShrubberyCreationForm.getGradeToSign() << ", and grade to execute ShrubberyCreationForm " << ShrubberyCreationForm.getGradeToExecute() << std::endl;
-// 	return (out);
-// }
+std::string	ShrubberyCreationForm::getTarget() const
+{
+	return (this->target);
+}
 
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+{
+	if (this->getIsSigned())
+	{
+		if (executor.getGrade() <= this->getGradeToExecute())
+		{
+			std::ofstream file(this->getName() + "_shrubbery");
+			if (file.is_open())
+			{
+				file << "       _-_" << std::endl;
+				file << "    /~~   ~~\\" << std::endl;
+				file << " /~~         ~~\\" << std::endl;
+				file << "{               }" << std::endl;
+				file << " \\  _-     -_  /" << std::endl;
+				file << "   ~  \\\\ //  ~" << std::endl;
+				file << "_- -   | | _- _" << std::endl;
+				file << "  _ -  | |   -_" << std::endl;
+				file << "      //  \\ " << std::endl;
+				file.close();
+			}
+			else
+				std::cout << "Error opening file" << std::endl;
+		}
+		else
+			throw AForm::GradeTooLowException();
+	}
+	else
+		std::cout << "Form is not signed" << std::endl;
+}

@@ -15,7 +15,7 @@
 /* ************************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : name("Unknown")
 {
@@ -58,12 +58,12 @@ std::ostream    &operator<<(std::ostream &out, Bureaucrat &bureaucrat)
     return (out);
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
     return (name);
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
     return (grade);
 }
@@ -88,7 +88,7 @@ void    Bureaucrat::decrementGrade()
     grade += 1;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	// form.beSigned(*this);
 	if (form.getIsSigned() == true)
