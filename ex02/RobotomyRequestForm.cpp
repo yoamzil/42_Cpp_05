@@ -59,8 +59,6 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	{
 		if (executor.getGrade() <= this->getGradeToExecute())
 		{
-            std::cout << "executor grade: " << executor.getGrade() << std::endl;
-            std::cout << "grade to execute: " << this->getGradeToExecute() << std::endl;
             std::cout << "*** DRILLING NOISES ***" << std::endl;
             srand(time(nullptr));
             if (rand() % 2 == 0)
@@ -72,10 +70,9 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		}
 		else
         {
-            std::cout << "Form is not executed" << std::endl;
-			throw AForm::GradeTooLowException();
+            throw AForm::FormNotExecutedException();
         }
 	}
 	else
-		std::cout << "Form is not executed" << std::endl;
+        throw AForm::FormNotSignedException();
 }

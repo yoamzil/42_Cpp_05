@@ -73,6 +73,15 @@ class   AForm
 					return ("Form not signed");
 				}
 		};
+
+		class FormNotExecutedException : public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return ("Form not exectued");
+				}
+		};
 };
 
 std::ostream    &operator<<(std::ostream &out,  const AForm &AForm);

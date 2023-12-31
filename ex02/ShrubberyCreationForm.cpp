@@ -59,8 +59,6 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	{
 		if (executor.getGrade() <= this->getGradeToExecute())
 		{
-            std::cout << "executor grade: " << executor.getGrade() << std::endl;
-            std::cout << "grade to execute: " << this->getGradeToExecute() << std::endl;
 			std::ofstream file(this->getTarget() + "_shrubbery");
 			if (file.is_open())
 			{
@@ -80,10 +78,9 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		}
 		else
         {
-            std::cout << "Form is not executed" << std::endl;
-			throw AForm::GradeTooLowException();
+            throw AForm::FormNotExecutedException();
         }
 	}
 	else
-		std::cout << "Form is not executed" << std::endl;
+        throw AForm::FormNotSignedException();
 }

@@ -52,8 +52,6 @@ AForm::AForm(const std::string Name, bool IsSigned, const int GradeToSign, const
         throw GradeTooLowException();
 }
 
-
-
 std::ostream    &operator<<(std::ostream &out, const AForm &AForm)
 {
     out << AForm.getName() << ", is signed: " << AForm.getIsSigned() <<", grade to sign AForm " << AForm.getGradeToSign() << ", and grade to execute AForm " << AForm.getGradeToExecute() << std::endl;

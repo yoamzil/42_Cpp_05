@@ -26,7 +26,7 @@ int main(void)
 	try
 	{
 		AForm                   *aform;
-		Bureaucrat              bureaucrat("Bureaucrat", 5);
+		Bureaucrat              bureaucrat("Bureaucrat", 137);
 		ShrubberyCreationForm   shrubberycreationform("said");
         RobotomyRequestForm     robotomyrequestform("simo");
         PresidentialPardonForm  presidentialpardonform("ali");

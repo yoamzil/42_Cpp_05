@@ -90,9 +90,21 @@ void    Bureaucrat::decrementGrade()
 
 void Bureaucrat::signForm(AForm &form)
 {
-	// form.beSigned(*this);
 	if (form.getIsSigned() == true)
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	else if (form.getIsSigned() == false)
 		std::cout << this->getName() << " couldn't sign " << form.getName() << ", because " << this->getName() << "'s grade is not high enough." << std::endl;
+}
+
+void    Bureaucrat::executeForm(AForm const &form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    } 
+    catch (std::exception &e)
+    {
+        std::cout << this->getName() << " failed to execute " << form.getName() << ": " << e.what() << std::endl;
+    }
 }
