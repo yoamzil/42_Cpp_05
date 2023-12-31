@@ -14,27 +14,27 @@
 /*																						  */
 /* ************************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "AForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", false, 145, 137)
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", false, 72, 45)
 {
-	// std::cout << "ShrubberyCreationForm constructor called" << std::endl;
+	// std::cout << "RobotomyRequestForm constructor called" << std::endl;
 	this->target = "Default_target";
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
-    // std::cout << "ShrubberyCreationForm destructor called" << std::endl;
+    // std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &original)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &original)
 {
-	// std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
+	// std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 	*this = original;
 }
 
-ShrubberyCreationForm  &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &original)
+RobotomyRequestForm  &RobotomyRequestForm::operator=(RobotomyRequestForm const &original)
 {
 	if (this != &original)
 	{
@@ -43,17 +43,17 @@ ShrubberyCreationForm  &ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 	return (*this);
 }
 
-std::string	ShrubberyCreationForm::getTarget() const
+std::string	RobotomyRequestForm::getTarget() const
 {
 	return (this->target);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string Target) : AForm(Target ,false, 145, 137)
+RobotomyRequestForm::RobotomyRequestForm(const std::string Target) : AForm(Target ,false, 72, 45)
 {
     target = Target;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getIsSigned())
 	{
@@ -61,22 +61,14 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		{
             std::cout << "executor grade: " << executor.getGrade() << std::endl;
             std::cout << "grade to execute: " << this->getGradeToExecute() << std::endl;
-			std::ofstream file(this->getTarget() + "_shrubbery");
-			if (file.is_open())
-			{
-				file << "       _-_" << std::endl;
-				file << "    /~~   ~~\\" << std::endl;
-				file << " /~~         ~~\\" << std::endl;
-				file << "{               }" << std::endl;
-				file << " \\  _-     -_  /" << std::endl;
-				file << "   ~  \\\\ //  ~" << std::endl;
-				file << "_- -   | | _- _" << std::endl;
-				file << "  _ -  | |   -_" << std::endl;
-				file << "      //  \\ " << std::endl;
-				file.close();
-			}
-			else
-				std::cout << "Error opening file" << std::endl;
+            std::cout << "*** DRILLING NOISES ***" << std::endl;
+            srand(time(nullptr));
+            if (rand() % 2 == 0)
+            {
+                std::cout << this->getTarget() << " has been robotomized successfully." << std::endl;
+            }
+            else
+                std::cout << this->getTarget() << " robotomy failed..." << std::endl;
 		}
 		else
         {

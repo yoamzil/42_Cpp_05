@@ -15,28 +15,60 @@
 /* ************************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+#include "AForm.hpp"
 
-PresidetialPardonForm::PresidetialPardonForm()
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", false, 25, 5)
 {
-    std::cout << "PresidentialPardonForm constructor called" << std::endl;
+	// std::cout << "PresidentialPardonForm constructor called" << std::endl;
+	this->target = "Default_target";
 }
 
-PresidetialPardonForm::~PresidetialPardonForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
-    std::cout << "PresidentialPardonForm destructor called" << std::endl;
+    // std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
 
-PresidetialPardonForm::PresidetialPardonForm(PresidetialPardonForm const &original)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &original)
 {
-	std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
+	// std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
 	*this = original;
 }
 
-PresidetialPardonForm  &PresidetialPardonForm::operator=(PresidetialPardonForm const &original)
+PresidentialPardonForm  &PresidentialPardonForm::operator=(PresidentialPardonForm const &original)
 {
 	if (this != &original)
 	{
-		// this->gradeToSign = original.gradeToSign;
+		this->target = original.target;
 	}
 	return (*this);
+}
+
+std::string	PresidentialPardonForm::getTarget() const
+{
+	return (this->target);
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string Target) : AForm(Target ,false, 25, 5)
+{
+    target = Target;
+}
+
+void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
+{
+	if (this->getIsSigned())
+	{
+		if (executor.getGrade() <= this->getGradeToExecute())
+		{
+            std::cout << "executor grade: " << executor.getGrade() << std::endl;
+            std::cout << "grade to execute: " << this->getGradeToExecute() << std::endl;
+            std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+		}
+		else
+        {
+            std::cout << "Form is not executed" << std::endl;
+			throw AForm::GradeTooLowException();
+        }
+	}
+	else
+		std::cout << "Form is not executed" << std::endl;
 }

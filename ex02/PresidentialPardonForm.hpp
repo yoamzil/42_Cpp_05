@@ -19,22 +19,28 @@
 
 #include <iostream>
 #include <exception>
+#include "AForm.hpp"
 
-class AForm;
-class   PresidetialPardonForm
+class   PresidentialPardonForm : public AForm
 {
     private:
-
+		std::string target;
     public:
-        PresidetialPardonForm();
-        ~PresidetialPardonForm();
-        PresidetialPardonForm(PresidetialPardonForm const &original);
-        PresidetialPardonForm  &operator=(PresidetialPardonForm const &original);
+		// ==================== Constructors ====================
+        PresidentialPardonForm();
+        ~PresidentialPardonForm();
+        PresidentialPardonForm(PresidentialPardonForm const &original);
+        PresidentialPardonForm  &operator=(PresidentialPardonForm const &original);
 
-        PresidetialPardonForm(const std::string Name, int grade);
+        PresidentialPardonForm(const std::string Target);
+		
+		// ==================== Getters ====================
+		std::string	getTarget() const;
 
+		// ==================== Methods ====================
+		virtual void	execute(Bureaucrat const &executor) const;
 };
 
-std::ostream    &operator<<(std::ostream &out, PresidetialPardonForm &PresidetialPardonForm);
+std::ostream    &operator<<(std::ostream &out, PresidentialPardonForm &PresidentialPardonForm);
 
 #endif

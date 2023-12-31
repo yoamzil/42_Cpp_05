@@ -25,28 +25,28 @@ int main(void)
 {
 	try
 	{
-		Form *aform;
-		Bureaucrat bureaucrat("Bureaucrat", 2);
-		ShrubberyCreationForm shrubberycreationform;
-		RobotomyRequestForm robotomyrequestform;
-		PresidentialPardonForm presidentialpardonform;
+		AForm                   *aform;
+		Bureaucrat              bureaucrat("Bureaucrat", 5);
+		ShrubberyCreationForm   shrubberycreationform("said");
+        RobotomyRequestForm     robotomyrequestform("simo");
+        PresidentialPardonForm  presidentialpardonform("ali");
 		
-		aform = &shrubberycreationform;
-		aform->beSigned(bureaucrat);
-		aform->execute(bureaucrat);
+		// aform = &shrubberycreationform;
+		// aform->beSigned(bureaucrat);
+		// aform->execute(bureaucrat);
 
-		aform = &robotomyrequestform;
-		aform->beSigned(bureaucrat);
-		aform->execute(bureaucrat);
+		// aform = &robotomyrequestform;
+		// aform->beSigned(bureaucrat);
+		// aform->execute(bureaucrat);
 
-		aform = &presidentialpardonform;
-		aform->beSigned(bureaucrat);
-		aform->execute(bureaucrat);
-		bureaucrat.executeForm(shrubberycreationform);
-		bureaucrat.executeForm(robotomyrequestform);
-		bureaucrat.executeForm(presidentialpardonform);
+		// aform = &presidentialpardonform;
+		// aform->beSigned(bureaucrat);
+		// aform->execute(bureaucrat);
+		// bureaucrat.executeForm(shrubberycreationform);
+		// bureaucrat.executeForm(robotomyrequestform);
+		// bureaucrat.executeForm(presidentialpardonform);
 
-		std::cout << shrubberycreationform << std::endl;
+		// std::cout << shrubberycreationform << std::endl;
 	}
 	catch(const std::exception &e)
 	{

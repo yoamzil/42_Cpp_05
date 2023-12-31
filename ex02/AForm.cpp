@@ -19,17 +19,17 @@
 
 AForm::AForm() : name("Unknown") , gradeToSign(150) , gradeToExecute(150)
 {
-    std::cout << "AForm constructor called" << std::endl;
+    // std::cout << "AForm constructor called" << std::endl;
 }
 
 AForm::~AForm()
 {
-    std::cout << "AForm destructor called" << std::endl;
+    // std::cout << "AForm destructor called" << std::endl;
 }
 
 AForm::AForm(AForm const &original) : name(original.name) , gradeToSign(original.gradeToSign) , gradeToExecute(original.gradeToExecute)
 {
-    std::cout << "AForm copy constructor called" << std::endl;
+    // std::cout << "AForm copy constructor called" << std::endl;
     *this = original;
 }
 
@@ -44,7 +44,8 @@ AForm  &AForm::operator=(AForm const &original)
 
 AForm::AForm(const std::string Name, bool IsSigned, const int GradeToSign, const int GradeToExecute ) : name(Name) , gradeToSign(GradeToSign) , gradeToExecute(GradeToExecute)
 {
-    std::cout << "AForm parameterized constructor called" << std::endl;
+    (void)IsSigned;
+    // std::cout << "AForm parameterized constructor called" << std::endl;
     if (GradeToSign < 1)
         throw GradeTooHighException();
     else if (GradeToSign > 150)
@@ -82,7 +83,10 @@ bool AForm::getIsSigned() const
 void		AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->gradeToSign)
+    {
+        std::cout << "Form is not signed" << std::endl;
 		throw GradeTooLowException();
+    }
 	else
 		this->isSigned = true;
 }

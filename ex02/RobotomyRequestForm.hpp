@@ -14,27 +14,34 @@
 /*																						  */
 /* ************************************************************************************** */
 
-#ifndef ROBOTMYREQUESTFORM_HPP
-#define ROBOTMYREQUESTFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include <iostream>
 #include <exception>
+#include "AForm.hpp"
+#include <cstdlib>
 
-class AForm;
-class   RobotmyRequestForm
+class   RobotomyRequestForm : public AForm
 {
     private:
-		std::string		target;
+		std::string target;
     public:
-        RobotmyRequestForm();
-        ~RobotmyRequestForm();
-        RobotmyRequestForm(RobotmyRequestForm const &original);
-        RobotmyRequestForm  &operator=(RobotmyRequestForm const &original);
+		// ==================== Constructors ====================
+        RobotomyRequestForm();
+        ~RobotomyRequestForm();
+        RobotomyRequestForm(RobotomyRequestForm const &original);
+        RobotomyRequestForm  &operator=(RobotomyRequestForm const &original);
 
-        RobotmyRequestForm(const std::string Name, int grade);
+        RobotomyRequestForm(const std::string Target);
+		
+		// ==================== Getters ====================
+		std::string	getTarget() const;
 
+		// ==================== Methods ====================
+		virtual void	execute(Bureaucrat const &executor) const;
 };
 
-std::ostream    &operator<<(std::ostream &out, RobotmyRequestForm &RobotmyRequestForm);
+std::ostream    &operator<<(std::ostream &out, RobotomyRequestForm &RobotomyRequestForm);
 
 #endif

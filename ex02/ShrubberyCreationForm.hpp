@@ -33,7 +33,7 @@ class   ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(ShrubberyCreationForm const &original);
         ShrubberyCreationForm  &operator=(ShrubberyCreationForm const &original);
 
-        // ShrubberyCreationForm(const std::string Name, int grade);
+        ShrubberyCreationForm(const std::string Target);
 		
 		// ==================== Getters ====================
 		std::string	getTarget() const;
