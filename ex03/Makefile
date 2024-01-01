@@ -1,0 +1,24 @@
+CXX			=	c++
+CXXFLAGS	=	-Wall -Werror -Wextra -std=c++98
+NAME		=	AForm
+SRCS		=	main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp  ShrubberyCreationForm.cpp RobotomyRequestForm.cpp Intern.cpp
+OBJS		=	$(SRCS:.cpp=.o)
+HFS			=	Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp  ShrubberyCreationForm.hpp RobotomyRequestForm.hpp Intern.hpp
+
+%.o			:	%.cpp $(HFS)
+				$(CXX) $(CXXFLAGS) -c $< -o $@
+
+all			:	$(NAME)
+
+$(NAME)		:	$(OBJS) $(HFS)
+				$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+clean		:
+				rm -f $(OBJS)
+
+fclean		:	clean
+				rm -f $(NAME)
+
+re			:	fclean all
+
+.PHONY		:	clean fclean all re
